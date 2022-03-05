@@ -24,3 +24,4 @@ Route::view('/directory/works', 'directory.works')->name('directory.works');
 Route::view('/directory/counterparties', 'directory.counterparties')->name('directory.counterparties');
 
 Route::view('/store', 'store.index')->name('store.index');
+Route::view('/store/posting/add', 'store.posting-create')->name('store.posting.create');

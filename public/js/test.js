@@ -15,7 +15,7 @@
   \******************************/
 /***/ (() => {
 
-eval("window.addEventListener(\"test\", function () {\n  alert('Hello');\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvdGVzdC5qcz8zNjhjIl0sIm5hbWVzIjpbIndpbmRvdyIsImFkZEV2ZW50TGlzdGVuZXIiLCJhbGVydCJdLCJtYXBwaW5ncyI6IkFBQUFBLE1BQU0sQ0FBQ0MsZ0JBQVAsQ0FBd0IsTUFBeEIsRUFBZ0MsWUFBTTtBQUNyQ0MsRUFBQUEsS0FBSyxDQUFDLE9BQUQsQ0FBTDtBQUNBLENBRkQiLCJzb3VyY2VzQ29udGVudCI6WyJ3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcihcInRlc3RcIiwgKCkgPT4ge1xuIGFsZXJ0KCdIZWxsbycpO1xufSk7XG4iXSwiZmlsZSI6Ii4vcmVzb3VyY2VzL2pzL3Rlc3QuanMuanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/test.js\n");
+eval("window.addEventListener(\"test\", function () {\n  alert('test');\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvdGVzdC5qcz8zNjhjIl0sIm5hbWVzIjpbIndpbmRvdyIsImFkZEV2ZW50TGlzdGVuZXIiLCJhbGVydCJdLCJtYXBwaW5ncyI6IkFBQUFBLE1BQU0sQ0FBQ0MsZ0JBQVAsQ0FBd0IsTUFBeEIsRUFBZ0MsWUFBTTtBQUNsQ0MsRUFBQUEsS0FBSyxDQUFDLE1BQUQsQ0FBTDtBQUNILENBRkQiLCJzb3VyY2VzQ29udGVudCI6WyJ3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcihcInRlc3RcIiwgKCkgPT4ge1xuICAgIGFsZXJ0KCd0ZXN0Jyk7XG59KTsiXSwiZmlsZSI6Ii4vcmVzb3VyY2VzL2pzL3Rlc3QuanMuanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/test.js\n");
 
 /***/ })
 

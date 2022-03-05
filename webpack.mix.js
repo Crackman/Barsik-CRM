@@ -17,4 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/jquery.js', 'public/js')
     .js('resources/js/test.js', 'public/js')
     .js('resources/js/directory/directory.js', 'public/js')
+    .js('resources/js/store/store.js', 'public/js')
     .sourceMaps();

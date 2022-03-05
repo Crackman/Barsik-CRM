@@ -1,3 +1,3 @@
 window.addEventListener("test", () => {
- alert('Hello');
+    alert('test');
 });

@@ -17,7 +17,9 @@ class Product extends Model
         'retail_price',
         'repair_price',
         'min_balance',
-        'warranty'
+        'warranty',
+        'dirty',
+        'parent_id'
     ];
 
     public static function filter($group_product_id)
@@ -31,6 +33,16 @@ class Product extends Model
         return $this->belongsTo('App\Models\GroupProduct', 'group_product_id', 'id');
     }
 
+    public function parents()
+    {
+        return$this->hasMany(Product::class, 'parent_id', 'id');
+    }
+
+    public function parent()
+    {
+        return$this->belongsTo(Product::class, 'parent_id', 'id');
+    }
+
     public function unit()
     {
         return $this->belongsTo('App\Models\Unit', 'unit_id', 'id');
@@ -38,6 +50,6 @@ class Product extends Model
 
     public function postings()
     {
-        return $this->belongsToMany(Posting::class);
+        return $this->belongsToMany(Posting::class, 'posting_product', 'product_id', 'posting_id');
     }
 }

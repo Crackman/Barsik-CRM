@@ -16,6 +16,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/store.js') }}"></script>
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/test.js') }}"></script>
 
 </body>
 </html>

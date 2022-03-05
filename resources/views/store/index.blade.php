@@ -1,4 +1,4 @@
-@extends('layouts.strore')
+@extends('layouts.store')
 
 @section('content')
     <div class="container-fluid">
@@ -10,15 +10,12 @@
                 </div>
             @endif
 
-                <div class="row mb-2">
-                    <div class="col-md-12">
-                        <div class="mt-1">
-                            <button class="btn btn-success btn-plus" wire:click="$emit('triggerCreate')" data-bs-toggle="modal" data-bs-target="#device-modal">
-                                Оприходовать<i class="fa-solid fa-plus fa-2x"></i>
-                            </button>
-                        </div>
-                    </div>
+            <div class="row mb-2">
+                <div class="col-md-12 mt-1">
+                    <a href="{{ route('store.posting.create') }}" class="btn btn-success">Оприходовать<i class="fa-solid fa-plus fa-2x"></i></a>
                 </div>
+            </div>
+
 
             <div class="col-md-12">
                 <livewire:store.posting-table />

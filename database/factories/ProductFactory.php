@@ -23,7 +23,6 @@ class ProductFactory extends Factory
             'retail_price' => $this->faker->numberBetween(0, 3000),
             'repair_price' => $this->faker->numberBetween(0, 3000),
             'min_balance' => $this->faker->numberBetween(0, 300),
-            'photo' => $this->faker->image('public'),
             'warranty' => $this->faker->numberBetween(0, 200),
         ];
     }

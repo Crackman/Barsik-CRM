@@ -16,6 +16,10 @@ class CreatePostingProductTable extends Migration
         Schema::create('posting_product', function (Blueprint $table) {
             $table->unsignedBigInteger('posting_id');
             $table->unsignedBigInteger('product_id');
+
+            $table->foreign('posting_id')->references('id')->on('postings');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('count');
             $table->timestamps();
         });
     }

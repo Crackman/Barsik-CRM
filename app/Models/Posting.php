@@ -28,6 +28,6 @@ class Posting extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'posting_product', 'posting_id','product_id');
     }
 }

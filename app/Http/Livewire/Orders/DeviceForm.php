@@ -63,7 +63,7 @@ class DeviceForm extends Component
         $this->resetForm();
     }
 
-    public function updatedCategoryId()
+    public function updatedDeviceCategoryId()
     {
         $this->reset('brand_id');
         $this->reset('device_model_id');

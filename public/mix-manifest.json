@@ -4,5 +4,6 @@
     "/js/jquery.js": "/js/jquery.js",
     "/js/test.js": "/js/test.js",
     "/js/directory.js": "/js/directory.js",
+    "/js/store.js": "/js/store.js",
     "/css/app.css": "/css/app.css"
 }
