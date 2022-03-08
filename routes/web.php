@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Store\PostingEdit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,4 @@ Route::view('/directory/counterparties', 'directory.counterparties')->name('dire
 
 Route::view('/store', 'store.index')->name('store.index');
 Route::view('/store/posting/add', 'store.posting-create')->name('store.posting.create');
+Route::get('store/posting/edit/{id}', PostingEdit::class)->name('store.posting-edit');

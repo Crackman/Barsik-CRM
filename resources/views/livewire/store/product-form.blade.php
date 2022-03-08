@@ -31,6 +31,11 @@
     @error('parent_id') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
+  <div class="form-group mb-3">
+    <label for="count">Количество</label>
+    <input type="number" class="form-control" id="count" name="count" wire:model.lazy="count">
+    @error('count') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
 
   <div class="form-group mb-3">
     <label for="purchase_price">Закупочная цена</label>

@@ -78,8 +78,8 @@
             </td>
 
             <td>
-              <button class="btn btn-success btn-sm btn-plus" wire:click="$emitTo('store.count-form','setProductId', {{ $product->id }})"
-                      data-bs-toggle="modal" data-bs-target="#count-modal">
+              <button class="btn btn-success btn-sm btn-plus"
+                      wire:click="$emitTo('store.count-form','setProductId', {{ $product->id }})">
                 Добавить<i class="fa-solid fa-plus fa-2x"></i>
               </button>
             </td>

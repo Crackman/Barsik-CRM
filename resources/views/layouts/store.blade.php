@@ -11,6 +11,7 @@
 @include('includes.header')
 @include('includes.store-nav')
 @yield('content')
+{{ $slot ?? '' }}
 
 @livewireScripts
 <script src="{{ asset('js/app.js') }}"></script>

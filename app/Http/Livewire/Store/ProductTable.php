@@ -10,11 +10,10 @@ use Livewire\Component;
 class ProductTable extends Component
 {
 
-    protected $listeners = ['triggerEditPosting' => 'editPosting', 'resetForm', 'setProductsCount',
+    protected $listeners = ['triggerEditPosting' => 'editPosting', 'resetForm',
         'triggerRefresh' => '$refresh'];
 
     public $groups, $count;
-    public $products_count = [];
 
     public function mount()
     {
@@ -24,11 +23,6 @@ class ProductTable extends Component
     public function save()
     {
 
-    }
-
-    public  function setProductsCount($products_count)
-    {
-        $this->products_count = $products_count;
     }
 
     public function editModel($model)

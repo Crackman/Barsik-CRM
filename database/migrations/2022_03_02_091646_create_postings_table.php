@@ -18,6 +18,7 @@ class CreatePostingsTable extends Migration
             $table->unsignedBigInteger('store_id');
             $table->unsignedBigInteger('counterparty_id');
             $table->unsignedBigInteger('incoming_number');
+            $table->unsignedBigInteger('summa')->default(0);
             $table->text('comment')->nullable();
             $table->timestamp('acceptance_date');
 

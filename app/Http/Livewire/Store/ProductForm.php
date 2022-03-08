@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Unit;
 use Illuminate\Support\Arr;
 use Livewire\Component;
+use phpDocumentor\Reflection\Types\Collection;
 
 class ProductForm extends Component
 {
@@ -36,22 +37,34 @@ class ProductForm extends Component
             'parent_id' => '',
         ]);
 
-        Product::find($this->product_id)
-            ->update([
-                'dirty' => TRUE,
-            ]);
-        $validated = Arr::add($validated, 'parent_id', $this->product_id);
-        $product =  Product::create($validated);
-        $this->emitTo('store.posting-form', 'replaceProductsCount',  $this->product_id, $product->id);
-        $this->dispatchBrowserEvent('product-saved');
 
+        $filtered =  Product::find($this->product_id)->only('name','group_product_id','unit_id','purchase_price',
+            'retail_price','repair_price', 'min_balance','warranty','parent_id');
+
+        if (array_diff_assoc($filtered, $validated))
+        {
+            Product::find($this->product_id)
+                ->update([
+                    'dirty' => TRUE,
+                ]);
+            $validated = Arr::add($validated, 'parent_id', $this->product_id);
+            $product =  Product::create($validated);
+            $this->emitTo('store.posting-form', 'replaceProductsCount',  $this->product_id, $product->id, $this->count);
+        }
+        else
+        {
+            $this->emitTo('store.posting-form', 'replaceProductsCount',  $this->product_id, $this->product_id, $this->count);
+        }
+
+        $this->dispatchBrowserEvent('product-saved');
         $this->emitTo('store.posting-form', 'triggerRefresh');
         $this->resetForm();
     }
 
-    public function editProduct($product)
+    public function editProduct($product, $count)
     {
         $this->product_id = $product['id'];
+        $this->count = $count;
         $this->parent_id = $product['parent_id'];
         $this->name = $product['name'];
         $this->group_product_id = $product['group_product_id'];

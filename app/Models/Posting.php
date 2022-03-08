@@ -14,6 +14,8 @@ class Posting extends Model
         'counterparty_id',
         'incoming_number',
         'acceptance_date',
+        'comment',
+        'summa'
     ];
 
     public function counterparty()
@@ -28,6 +30,7 @@ class Posting extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'posting_product', 'posting_id','product_id');
+        return $this->belongsToMany(Product::class, 'posting_product', 'posting_id','product_id')
+            ->withPivot('count');
     }
 }

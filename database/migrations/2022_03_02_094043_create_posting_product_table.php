@@ -19,7 +19,7 @@ class CreatePostingProductTable extends Migration
 
             $table->foreign('posting_id')->references('id')->on('postings');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('count');
+            $table->unsignedBigInteger('count')->default(0);
             $table->timestamps();
         });
     }

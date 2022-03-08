@@ -15,18 +15,17 @@
             @foreach ($postings as $posting)
                 <tr>
                     <td>
-                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#posting-modal"
-                                wire:click="$emitTo('store.posting-form', 'triggerEditPosting', {{ $posting }})">
+                        <a href="{{ route('store.posting-edit', [$posting->id]) }}" class="btn btn-primary">
                             {{ $posting->incoming_number}}
-                        </button>
+                        </a>
                     </td>
                     <td>{{ $posting->acceptance_date }}</td>
                     <td>{{ $posting->store->name }}</td>
                     <td>{{ $posting->counterparty->name }}</td>
-                    <td>----</td>
+                    <td><strong>{{ $posting->summa ?? '' }}</strong></td>
                     <td>{{ $posting->comment }}</td>
                     <td>
-                        <button class="btn btn-sm btn-dark" wire:click="$emit('deletePosting', {{ $posting->id }})">
+                        <button class="btn btn-sm btn-dark" wire:click="delete({{ $posting->id }})">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </td>

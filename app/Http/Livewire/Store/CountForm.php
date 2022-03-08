@@ -8,7 +8,7 @@ class CountForm extends Component
 {
     public $count, $product_id;
 
-    protected $listeners = ['setProductId'];
+    protected $listeners = ['setProductId', 'resetForm'];
 
     public function save()
     {
@@ -16,8 +16,8 @@ class CountForm extends Component
             'count' => 'required',
         ]);
         if($this->count > 0){
-            $this->emit('addProductsCount',$this->product_id, $this->count );
-            $this->dispatchBrowserEvent('count-hide');
+            $this->emitTo('store.posting-form','addProductsCount',$this->product_id, $this->count );
+            $this->dispatchBrowserEvent('count-saved');
             $this->emit('showModalProduct');
         }
         $this->resetForm();
@@ -26,6 +26,7 @@ class CountForm extends Component
     public function setProductId($id)
     {
         $this->product_id = $id;
+        $this->emit('showModalCount');
     }
 
     public function resetForm()
