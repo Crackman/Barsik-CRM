@@ -26,4 +26,5 @@ Route::view('/directory/counterparties', 'directory.counterparties')->name('dire
 
 Route::view('/store', 'store.index')->name('store.index');
 Route::view('/store/posting/add', 'store.posting-create')->name('store.posting.create');
-Route::get('store/posting/edit/{id}', PostingEdit::class)->name('store.posting-edit');
+Route::get('store/posting/edit/{id}', PostingEdit::class)->name('store.posting.edit');
+Route::view('store/moves/new', 'store.move-create')->name('store.move.create');

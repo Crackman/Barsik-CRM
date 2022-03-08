@@ -1,5 +1,5 @@
 <div class="row">
-@if (!empty($devices))
+@if ($devices->count())
   <table class="table table-hover table-sm">
     <thead>
     <tr>
@@ -28,7 +28,7 @@
         <td>{{ $device->defect}}</td>
         <td>{{ $device->complete_before}}</td>
         <td>
-          <button class="btn btn-sm btn-dark" wire:click="$emit('deleteDevice', {{ $device->id }})">
+          <button class="btn btn-sm btn-dark" wire:click="delete({{ $device->id }})">
             <i class="fa-solid fa-trash"></i>
           </button>
         </td>

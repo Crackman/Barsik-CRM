@@ -53,7 +53,9 @@ class PostingForm extends Component
             $products = Product::find($products_id);
             Posting::find($this->posting_id)->products()->detach();
             foreach ($products as $product) {
-                Posting::find($this->posting_id)->products()->attach($product, ['count' => $this->products_count[$product->id]]);
+                Posting::find($this->posting_id)->products()->attach($product, [
+                    'coming_count' => $this->products_count[$product->id],
+                    'real_count' => $this->products_count[$product->id]]);
             }
 
             // Update the table.
@@ -74,7 +76,9 @@ class PostingForm extends Component
             $validated = Arr::add($validated, 'summa', $this->summa(products : $approved_products));
             $posting = Posting::create($validated);
             foreach ($approved_products as $product) {
-                Posting::find($posting->id)->products()->attach($product, ['count' => $this->products_count[$product->id]]);
+                Posting::find($posting->id)->products()->attach($product, [
+                    'coming_count' => $this->products_count[$product->id],
+                    'real_count' => $this->products_count[$product->id]]);
             }
         }
 
@@ -146,11 +150,6 @@ class PostingForm extends Component
             $this->products_count->put($approved_product->id, $approved_product->pivot->count);
         }
     }
-
-    public function resetForm()
-    {
-    }
-
 
     public function render()
     {

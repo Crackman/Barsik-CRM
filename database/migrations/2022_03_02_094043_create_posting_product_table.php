@@ -16,10 +16,17 @@ class CreatePostingProductTable extends Migration
         Schema::create('posting_product', function (Blueprint $table) {
             $table->unsignedBigInteger('posting_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('coming_count')->default(0);
+            $table->unsignedBigInteger('real_count')->default(0);
 
-            $table->foreign('posting_id')->references('id')->on('postings');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('count')->default(0);
+            $table->foreign('posting_id')
+                ->references('id')
+                ->on('postings')
+                ->onDelete('cascade');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

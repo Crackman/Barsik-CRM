@@ -13,14 +13,13 @@ class PostingTable extends Component
 
     public function delete($id)
     {
-        Posting::find($id)->products()->detach();
         Posting::destroy($id);
     }
 
     public function render()
     {
         return view('livewire.store.posting-table', [
-            'postings' => Posting::all(),
+            'postings' =>  Posting::with('counterparty', 'store', 'products', 'stores')->latest()->get(),
         ]);
     }
 }

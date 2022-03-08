@@ -45,12 +45,12 @@ class Product extends Model
 
     public function unit()
     {
-        return $this->belongsTo('App\Models\Unit', 'unit_id', 'id');
+        return $this->belongsTo(Unit::class, 'unit_id', 'id');
     }
 
     public function postings()
     {
         return $this->belongsToMany(Posting::class, 'posting_product', 'product_id', 'posting_id')
-            ->withPivot('count');
+            ->withPivot('coming_count', 'real_count');
     }
 }

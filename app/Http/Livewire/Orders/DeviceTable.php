@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class DeviceTable extends Component
 {
-    protected $listeners = ['triggerRefresh' => '$refresh', 'deleteDevice' => 'delete'];
+    protected $listeners = ['triggerRefresh' => '$refresh'];
 
     public function delete($id)
     {

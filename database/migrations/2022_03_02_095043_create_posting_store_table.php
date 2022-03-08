@@ -17,8 +17,14 @@ class CreatePostingStoreTable extends Migration
             $table->unsignedBigInteger('posting_id');
             $table->unsignedBigInteger('store_id');
 
-            $table->foreign('posting_id')->references('id')->on('postings');
-            $table->foreign('store_id')->references('id')->on('stores');
+            $table->foreign('posting_id')
+                ->references('id')
+                ->on('postings')
+                ->onDelete('cascade');
+            $table->foreign('store_id')
+                ->references('id')
+                ->on('stores')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

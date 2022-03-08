@@ -15,7 +15,7 @@
             @foreach ($postings as $posting)
                 <tr>
                     <td>
-                        <a href="{{ route('store.posting-edit', [$posting->id]) }}" class="btn btn-primary">
+                        <a href="{{ route('store.posting.edit', [$posting->id]) }}" class="btn btn-primary">
                             {{ $posting->incoming_number}}
                         </a>
                     </td>
@@ -39,5 +39,3 @@
         </div>
     @endif
 </div>
-
-<p>{{ $postings->count() }}</p>
