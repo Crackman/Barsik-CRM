@@ -17,4 +17,9 @@ class Store extends Model
     {
         return $this->hasMany(Posting::class, 'store_id', 'id');
     }
+
+    public function postingsToMany()
+    {
+        return $this->belongsToMany(Posting::class, 'posting_store', 'store_id', 'posting_id');
+    }
 }

@@ -87,20 +87,19 @@ class PostingForm extends Component
 
         if ($products)
         {
-            dd($products);
             foreach ($products as $product) {
                 $counts->push($this->products_count[$product->id] * $product->purchase_price);
             }
-            return $counts->sum();
         }
+
         elseif ($posting_id)
         {
             $products = Posting::find($posting_id)->products;
             foreach ($products as $product) {
                 $counts->push($product->pivot->count * $product->purchase_price);
             }
-            return $counts->sum();
         }
+        return $counts->sum();
     }
 
 

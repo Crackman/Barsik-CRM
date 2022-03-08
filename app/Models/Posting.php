@@ -33,4 +33,9 @@ class Posting extends Model
         return $this->belongsToMany(Product::class, 'posting_product', 'posting_id','product_id')
             ->withPivot('count');
     }
+
+    public function stores()
+    {
+        return $this->belongsToMany(Store::class, 'posting_store', 'posting_id', 'store_id');
+    }
 }
