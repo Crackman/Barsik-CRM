@@ -17,6 +17,6 @@ class Respect extends Model
 
     public function counterparties()
     {
-        return $this->hasMany('Counterparty::class', 'respect_id', 'id');
+        return $this->hasMany(Counterparty::class, 'respect_id', 'id');
     }
 }

@@ -83,9 +83,6 @@
               {{ $product->repair_price }}
             </td>
             <td>
-              pivot - {{ $product->pivot->count ?? '' }}
-            </td>
-            <td>
               <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#product-form-modal"
                       wire:click="$emitTo('store.product-form','triggerEditProduct', {{ $product }}, {{ $products_count[$product->id] }})">
                 <i class="fa-solid fa-pencil"></i>

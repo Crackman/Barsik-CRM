@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             PostingSeeder::class,
             PostingProductSeeder::class,
             PostingStoreSeeder::class,
+            MoveSeeder::class,
         ]);
         //\App\Models\User::factory(10)->create();
     }

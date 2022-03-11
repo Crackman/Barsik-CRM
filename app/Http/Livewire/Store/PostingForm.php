@@ -98,9 +98,8 @@ class PostingForm extends Component
 
         elseif ($posting_id)
         {
-            $products = Posting::find($posting_id)->products;
-            foreach ($products as $product) {
-                $counts->push($product->pivot->count * $product->purchase_price);
+            foreach (Posting::find($posting_id)->products as $product) {
+                $counts->push($product->pivot->coming_count * $product->purchase_price);
             }
         }
         return $counts->sum();
@@ -147,7 +146,7 @@ class PostingForm extends Component
         $this->approved_products = Posting::find($posting['id'])->products;
         foreach ($this->approved_products as $approved_product)
         {
-            $this->products_count->put($approved_product->id, $approved_product->pivot->count);
+            $this->products_count->put($approved_product->id, $approved_product->pivot->coming_count);
         }
     }
 

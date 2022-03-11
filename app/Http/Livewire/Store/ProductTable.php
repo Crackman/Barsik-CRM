@@ -37,7 +37,7 @@ class ProductTable extends Component
     public function render()
     {
         return view('livewire.store.product-table', [
-            'products' => Product::all(),
+            'products' => Product::with('group', 'parents', 'parent', 'unit','postings')->latest()->get(),
         ]);
     }
 }

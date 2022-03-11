@@ -22,4 +22,14 @@ class Store extends Model
     {
         return $this->belongsToMany(Posting::class, 'posting_store', 'store_id', 'posting_id');
     }
+
+    public function fromMoves()
+    {
+        return $this->hasMany(Move::class, 'from_store_id', 'id');
+    }
+
+    public function toMoves()
+    {
+        return $this->hasMany(Move::class, 'to_store_id', 'id');
+    }
 }

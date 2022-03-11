@@ -24,6 +24,6 @@ class Passport extends Model
 
     public function counterparty()
     {
-        return $this->belongsTo('Counterparty::class', 'counterparty_id', 'id');
+        return $this->belongsTo(Counterparty::class, 'counterparty_id', 'id');
     }
 }

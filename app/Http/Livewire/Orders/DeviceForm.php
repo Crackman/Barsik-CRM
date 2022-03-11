@@ -22,8 +22,8 @@ class DeviceForm extends Component
 
     public  function mount()
     {
-        $this->categories = DeviceCategory::all();
-        $this->brands = Brand::all();
+        $this->categories = DeviceCategory::with('brands')->get();
+        $this->brands = Brand::with('category', 'models')->get();
         $this->statuses = DeviceStatus::all();
         $this->types = OrderType::all();
     }

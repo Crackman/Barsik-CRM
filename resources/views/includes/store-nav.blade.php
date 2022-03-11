@@ -5,7 +5,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                Статусы и Типы
+                Test
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ route('directory.statuses') }}">Статусы</a></li>
@@ -16,7 +16,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('directory.products') }}">Перемещение</a>
+            <a class="nav-link" href="{{ route('store.moves') }}">Перемещение</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('directory.counterparties') }}">Списание</a>

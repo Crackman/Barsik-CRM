@@ -11,8 +11,7 @@ use Livewire\Component;
 
 class PostingEdit extends Component
 {
-    protected $listeners = ['triggerEditPosting' => 'editPosting', 'resetForm', 'addProductsCount',
-        'addApprovedProducts', 'replaceProductsCount', 'triggerRefresh' => '$refresh'];
+    protected $listeners = ['triggerRefresh' => '$refresh'];
 
     public $posting_id;
 

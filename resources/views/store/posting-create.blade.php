@@ -2,17 +2,14 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-
-            <div class="row">
-                <livewire:store.posting-form />
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
             </div>
+        @endif
+
+        <div class="row">
+            <livewire:store.posting-form />
 
             <div class="modal" tabindex="-1" id="product-modal" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">

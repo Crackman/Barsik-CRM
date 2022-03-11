@@ -1,5 +1,5 @@
 <div class="row">
-    @if (!empty($postings))
+    @if ($postings->count())
         <table class="table table-hover table-sm">
             <thead>
             <tr>

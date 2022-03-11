@@ -17,6 +17,6 @@ class CounterpartyType extends Model
 
     public function counterparties()
     {
-        return $this->hasMany('Counterparty::class', 'counterparty_type_id', 'id');
+        return $this->hasMany(Counterparty::class, 'counterparty_type_id', 'id');
     }
 }

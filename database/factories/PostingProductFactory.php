@@ -18,7 +18,8 @@ class PostingProductFactory extends Factory
         return [
             'posting_id' => rand(1, Posting::all()->count()),
             'product_id' => rand(1, Product::all()->count()),
-            'count' =>$this->faker->numberBetween(1,1000)
+            'coming_count' =>$this->faker->numberBetween(500,1000),
+            'real_count' =>$this->faker->numberBetween(1,500)
         ];
     }
 }

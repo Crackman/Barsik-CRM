@@ -19,7 +19,7 @@ class DeviceTable extends Component
     public function render()
     {
         return view('livewire.orders.device-table',[
-            'devices' => Device::with('brand', 'category', 'status', 'type')->latest()->get()
+            'devices' => Device::with('brand', 'category', 'status', 'type','model')->latest()->get()
         ]);
     }
 }

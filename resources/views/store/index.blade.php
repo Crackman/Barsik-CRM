@@ -2,21 +2,20 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
 
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-
-            <div class="row mb-2">
-                <div class="col-md-12 mt-1">
-                    <a href="{{ route('store.posting.create') }}" class="btn btn-success">Оприходовать<i class="fa-solid fa-plus fa-2x"></i></a>
-                </div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
             </div>
+        @endif
 
+        <div class="row mb-2">
+            <div class="col-md-12 mt-1">
+                <a href="{{ route('store.posting.create') }}" class="btn btn-success">Оприходовать<i class="fa-solid fa-plus fa-2x"></i></a>
+            </div>
+        </div>
 
+        <div class="row">
             <div class="col-md-12">
                 <livewire:store.posting-table />
             </div>
@@ -76,7 +75,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>
