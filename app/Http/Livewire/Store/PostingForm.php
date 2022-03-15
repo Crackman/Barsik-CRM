@@ -54,8 +54,7 @@ class PostingForm extends Component
             Posting::find($this->posting_id)->products()->detach();
             foreach ($products as $product) {
                 Posting::find($this->posting_id)->products()->attach($product, [
-                    'coming_count' => $this->products_count[$product->id],
-                    'real_count' => $this->products_count[$product->id]]);
+                    'count' => $this->products_count[$product->id]]);
             }
 
             // Update the table.
@@ -77,8 +76,7 @@ class PostingForm extends Component
             $posting = Posting::create($validated);
             foreach ($approved_products as $product) {
                 Posting::find($posting->id)->products()->attach($product, [
-                    'coming_count' => $this->products_count[$product->id],
-                    'real_count' => $this->products_count[$product->id]]);
+                    'count' => $this->products_count[$product->id]]);
             }
         }
 

@@ -32,4 +32,10 @@ class Store extends Model
     {
         return $this->hasMany(Move::class, 'to_store_id', 'id');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_store', 'store_id', 'product_id')
+            ->withPivot('count');
+    }
 }
