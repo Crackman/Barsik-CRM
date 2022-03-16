@@ -35,9 +35,9 @@ class DatabaseSeeder extends Seeder
             CounterpartyPassportSeeder::class,
 
             StoreSeeder::class,
-            PostingSeeder::class,
-            PostingProductSeeder::class,
-            PostingStoreSeeder::class,
+            //PostingSeeder::class,
+            //PostingProductSeeder::class,
+            //PostingStoreSeeder::class,
             MoveSeeder::class,
         ]);
         //\App\Models\User::factory(10)->create();

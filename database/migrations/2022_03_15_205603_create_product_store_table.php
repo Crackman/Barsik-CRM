@@ -16,6 +16,7 @@ class CreateProductStoreTable extends Migration
         Schema::create('product_store', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('store_id');
+            $table->unsignedBigInteger('count')->default(0);
 
             $table->foreign('product_id')
                 ->references('id')

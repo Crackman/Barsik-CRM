@@ -70,13 +70,41 @@ class PostingForm extends Component
         }
         else
         {
+            $store_products = Store::find($this->store_id)->products();
             $products_id = $this->products_count->keys();
             $approved_products = Product::find($products_id);
             $validated = Arr::add($validated, 'summa', $this->summa(products : $approved_products));
             $posting = Posting::create($validated);
             foreach ($approved_products as $product) {
                 Posting::find($posting->id)->products()->attach($product, [
-                    'count' => $this->products_count[$product->id]]);
+                    'count' => $this->products_count[$product->id],
+                ]);
+
+                // Update the value 'count' in pivot table product_store
+                if (Store::find($this->store_id)->products->count())
+                {
+                    if(Store::find($this->store_id)->products->find($product->id))
+                    {
+                        $count = Store::getProductCount($this->store_id, $product->id);
+                        $store_products->detach($product->id);
+                        $store_products->attach($product->id, [
+                            'count' => $count + $this->products_count[$product->id],
+                        ]);
+                    }
+                    else
+                    {
+                        $store_products->attach($product->id, [
+                            'count' => $this->products_count[$product->id]
+                        ]);
+                    }
+                }
+                else
+                {
+                    $store_products->attach($product->id, [
+                        'count' => $this->products_count[$product->id]
+                    ]);
+                }
+
             }
         }
 
@@ -97,7 +125,7 @@ class PostingForm extends Component
         elseif ($posting_id)
         {
             foreach (Posting::find($posting_id)->products as $product) {
-                $counts->push($product->pivot->coming_count * $product->purchase_price);
+                $counts->push($product->pivot->count * $product->purchase_price);
             }
         }
         return $counts->sum();
@@ -144,7 +172,7 @@ class PostingForm extends Component
         $this->approved_products = Posting::find($posting['id'])->products;
         foreach ($this->approved_products as $approved_product)
         {
-            $this->products_count->put($approved_product->id, $approved_product->pivot->coming_count);
+            $this->products_count->put($approved_product->id, $approved_product->pivot->count);
         }
     }
 

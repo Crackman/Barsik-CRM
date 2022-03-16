@@ -13,6 +13,11 @@ class Store extends Model
         'name'
     ];
 
+    public static function getProductCount($store_id, $product_id)
+    {
+       return Store::find($store_id)->products->find($product_id)->pivot->count;
+    }
+
     public function postings()
     {
         return $this->hasMany(Posting::class, 'store_id', 'id');
